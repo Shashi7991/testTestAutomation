@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.isa'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.20.0'
+
+    implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.23.1'
+
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.5'
+
+    implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.2.5'
+
+    implementation("com.google.guava:guava:33.2.0-jre")
+
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.32'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    testImplementation group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '3.2.5'
+
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
+}
+
+test {
+    maxHeapSize = "4096m"
+    minHeapSize = "2048m"
+
+    useJUnitPlatform()
+}
